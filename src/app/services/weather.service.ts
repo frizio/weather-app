@@ -17,7 +17,7 @@ export class WeatherService {
   }
 
   getWeather(cityName: string, countryCode: string) {
-    return this.httpClient.get(`${this.URI}&${cityName},${countryCode}`);
+    return this.httpClient.get(`${this.URI}&q=${cityName},${countryCode}`);
   }
 
 }
