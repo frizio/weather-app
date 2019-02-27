@@ -13,7 +13,11 @@ export class AppComponent implements OnInit {
   ) {  }
 
   ngOnInit(): void {
-    this.weatherService.getWeather('london', 'uk')
+    this.getWeather('london', 'uk');
+  }
+
+  getWeather(cityName: string, countryCode: string) {
+    this.weatherService.getWeather(cityName, countryCode)
       .subscribe(
         response => {
           console.log(response);
@@ -22,6 +26,16 @@ export class AppComponent implements OnInit {
           console.log(error);
         }
       );
+  }
+
+  submitLocation(cityName: HTMLInputElement, countryCode: HTMLInputElement) {
+    console.log('Submit the location');
+    console.log(cityName.value);
+    console.log(countryCode.value);
+    cityName.value = '';
+    countryCode.value = '';
+    cityName.focus();
+    return false;
   }
 
 }
