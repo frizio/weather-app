@@ -8,6 +8,8 @@ import { WeatherService } from './services/weather.service';
 })
 export class AppComponent implements OnInit {
 
+  public weatherData;
+
   constructor(
     private weatherService: WeatherService
   ) {  }
@@ -21,6 +23,7 @@ export class AppComponent implements OnInit {
       .subscribe(
         response => {
           console.log(response);
+          this.weatherData = response;
         },
         error => {
           console.log(error);
@@ -32,6 +35,7 @@ export class AppComponent implements OnInit {
     console.log('Submit the location');
     console.log(cityName.value);
     console.log(countryCode.value);
+    this.getWeather(cityName.value, countryCode.value);
     cityName.value = '';
     countryCode.value = '';
     cityName.focus();
