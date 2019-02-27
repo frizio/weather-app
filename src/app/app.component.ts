@@ -15,7 +15,7 @@ export class AppComponent implements OnInit {
   ) {  }
 
   ngOnInit(): void {
-    this.getWeather('london', 'uk');
+
   }
 
   getWeather(cityName: string, countryCode: string) {

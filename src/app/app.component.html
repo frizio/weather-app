@@ -20,10 +20,14 @@
             <div class="card-header">
               Today's weather
             </div>
-            <div class="card-body">
-              <h5 class="card-title">The city</h5>
-              <p class="card-text">{{weatherData| json}}</p>
+            <div *ngIf="weatherData" class="card-body">
+              <h5 class="card-title">{{weatherData.name}}</h5>
+              <p class="card-text">Latitude {{weatherData.coord.lat}}</p>
+              <p class="card-text">Longitude {{weatherData.coord.lon}}</p>
+              <p class="card-text">Description {{weatherData.weather[0].description}}</p>
               <p class="card-text">Temperature {{weatherData.main.temp}}</p>
+              <p class="card-text">Humidity {{weatherData.main.humidity}}</p>
+              <p class="card-text">Pressure {{weatherData.main.pressure}}</p>
             </div>
           </div>
     </div>
