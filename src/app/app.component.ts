@@ -35,9 +35,13 @@ export class AppComponent implements OnInit {
     console.log('Submit the location');
     console.log(cityName.value);
     console.log(countryCode.value);
-    this.getWeather(cityName.value, countryCode.value);
-    cityName.value = '';
-    countryCode.value = '';
+    if (cityName.value && countryCode.value) {
+      this.getWeather(cityName.value, countryCode.value);
+      cityName.value = '';
+      countryCode.value = '';
+    } else {
+      alert('Please Insert some value');
+    }
     cityName.focus();
     return false;
   }
